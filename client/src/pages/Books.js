@@ -4,23 +4,13 @@ import Jumbotron from "../components/Jumbotron";
 import SaveButton from "../components/SaveButton"
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
-import API from "../utils/API";
+
 
 function Books() {
   const [books, setBooks] = useState([])
   const [query, setQuery] = useState("")
 
-  useEffect(()=>{
-    loadBooks()
-  },[])
-
-  function loadBooks(){
-    API.getBooks()
-    .then(res => 
-    setBooks(res.data)
-    )
-    .catch(err => console.log(err));
-  }
+  
 
 
   function handleChange(event){
@@ -90,17 +80,20 @@ function handleEnterKey(event){
               book.volumeInfo.imageLinks && 
               book.volumeInfo.imageLinks.thumbnail ?
               book.volumeInfo.imageLinks.thumbnail : "#"}
-              alt={book.volumeInfo.title ? 
+              alt={book.volumeInfo &&
+                book.volumeInfo.title ? 
                 book.volumeInfo.title : ["No known title"]}>
               </img>
 
             </Col>
             <Col size="sm-10">
 
-              <h3>{book.volumeInfo.title ? 
+              <h3>{book.volumeInfo &&
+                book.volumeInfo.title ?  
               book.volumeInfo.title : ["No known title"]}</h3>
 
-              <strong>{book.volumeInfo.authors ? book.volumeInfo.authors.join(",") : ["No known Authors"]}</strong>
+              <strong>{book.volumeInfo &&
+              book.volumeInfo.authors ? book.volumeInfo.authors.join(",") : ["No known Authors"]}</strong>
         
               <p>{book.volumeInfo.description ? book.volumeInfo.description : ["No description available"] }</p>
               
