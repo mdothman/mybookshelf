@@ -65,16 +65,30 @@ function Books() {
         <li key={item.id}>
           <Row>
             <Col size="sm-2">
-              <img src={item.volumeInfo.imageLinks.thumbnail}></img>
+              
+              <img src={item.volumeInfo && 
+              item.volumeInfo.imageLinks && 
+              item.volumeInfo.imageLinks.thumbnail ?
+              item.volumeInfo.imageLinks.thumbnail : "#"}
+              alt={item.volumeInfo.title ? 
+                item.volumeInfo.title : ["No known title"]}>
+              </img>
+
             </Col>
             <Col size="sm-10">
-              <h3>{item.volumeInfo.title}</h3>
-              <strong>{item.volumeInfo.authors.join(", ")}</strong>
-        <p>{item.volumeInfo.description}</p>
+
+              <h3>{item.volumeInfo.title ? 
+              item.volumeInfo.title : ["No known title"]}</h3>
+
+              <strong>{item.volumeInfo.authors ? item.volumeInfo.authors.join(",") : ["No known Authors"]}</strong>
+        
+              <p>{item.volumeInfo.description ? item.volumeInfo.description : ["No description available"] }</p>
+              
               <a href={item.volumeInfo.infoLink}>More Info</a>
+              
               <SaveButton
               title={item.volumeInfo.title ? item.volumeInfo.title : ["No known title"]}
-              authors={item.volumeInfo.authors.join(", ") ? item.volumeInfo.authors.join(", ") : ["No known Authors"]}
+              authors={item.volumeInfo.authors ? item.volumeInfo.authors.join(",") : ["No known Authors"]}
               />
             </Col>
          </Row>
