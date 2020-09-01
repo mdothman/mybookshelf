@@ -12,19 +12,26 @@ function Books() {
   const [url, setUrl] = useState(
     'https://www.googleapis.com/books/v1/volumes?q=',
   );
-  const [bookObject,setBookObject]=useState({})
-  function handleSubmit(e){
-    e.preventDefault()
+ 
+
+  function handleSubmit(event){
+    event.preventDefault()
     setUrl(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
   }
+
   function handleChange(event){
+    event.preventDefault()
     setQuery(event.target.value)
+    
   }
-  // function handleSave(props){
-    
-  //   console.log(props)
-    
-  // }
+ 
+   function submitOnEnter(event) {
+    if(event.key === "Enter"){
+       handleSubmit()
+     }
+   }
+
+  
  
 
   useEffect(() => {
@@ -48,9 +55,11 @@ function Books() {
     <form>
       
       <Input
+        autoComplete="off" 
         type="text"
         value={query}
         onChange={handleChange}
+        onKeyPress={submitOnEnter}
       />
       <FormBtn
         type="button"
