@@ -4,7 +4,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/">
-        React Reading List
+        My Bookshelf
       </a>
    <ul className="navbar-nav">
    <li className="nav-item">

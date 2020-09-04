@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import axios from 'axios';
 import Jumbotron from "../components/Jumbotron";
 import SaveButton from "../components/SaveButton"
@@ -49,9 +49,9 @@ function handleEnterKey(event){
     <Row>
    
     <Col size="md-12">
-       <Jumbotron>
+      <Jumbotron>
       <h1>USE GOOGLE BOOKS</h1>
-    </Jumbotron>
+      </Jumbotron>
     <form>
      <Fragment> 
       <Input
@@ -93,32 +93,34 @@ function handleEnterKey(event){
               book.volumeInfo.title : ["No known title"]}</h3>
 
               <strong>{book.volumeInfo &&
-              book.volumeInfo.authors ? book.volumeInfo.authors.join(",") : ["No known Authors"]}</strong>
+              book.volumeInfo.authors ? 
+              book.volumeInfo.authors.join(",") : 
+              ["No known Authors"]}
+              </strong>
         
-              <p>{book.volumeInfo.description ? book.volumeInfo.description : ["No description available"] }</p>
+              <p>{book.volumeInfo.description ? 
+                  book.volumeInfo.description : 
+                  ["No description available"] }</p>
               
               <a href={book.volumeInfo.infoLink}>More Info</a>
               
               <SaveButton
-              title={book.volumeInfo.title ? book.volumeInfo.title : ["No known title"]}
-              authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(",") : ["No known Authors"]}
+              title={book.volumeInfo.title ? 
+                     book.volumeInfo.title : 
+                     ["No known title"]}
+              authors={book.volumeInfo.authors ? 
+                      book.volumeInfo.authors.join(",") : 
+                      ["No known Authors"]}
               />
             </Col>
          </Row>
         </li>
-          
         ))}
       </ul>
-    
-    
     </Col>
-    </Row>
-
-
-  </Container>
-   
-  );
-  }
+  </Row>
+</Container>
+)}
 
 
 export default Books;

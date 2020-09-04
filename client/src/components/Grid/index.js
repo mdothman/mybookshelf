@@ -21,6 +21,7 @@ export function Col({ size, children }) {
         .split(" ")
         .map(size => "col-" + size)
         .join(" ")}
+        style={{ marginBottom: 20}}
     >
       {children}
     </div>
