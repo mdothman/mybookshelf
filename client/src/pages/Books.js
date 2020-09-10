@@ -35,7 +35,7 @@ function Books() {
     
   }
 //  console.log(books)
-
+// if don't have a button type that is submit, the "Enter" key will refresh your page.
 function handleEnterKey(event){
   if(event.target.value === "Enter"){
     
@@ -75,11 +75,13 @@ function handleEnterKey(event){
         <li key={book.id}>
           <Row>
             <Col size="sm-2">
-              
+              {/* Fun fact, if you have an undefined value in the parent element, your page will error out. */}
               <img src={book.volumeInfo && 
               book.volumeInfo.imageLinks && 
               book.volumeInfo.imageLinks.thumbnail ?
               book.volumeInfo.imageLinks.thumbnail : "#"}
+              // it is important to look after people who are hard of hearing, 
+              // that is why it is always important to have an alt for your image
               alt={book.volumeInfo &&
                 book.volumeInfo.title ? 
                 book.volumeInfo.title : ["No known title"]}>
