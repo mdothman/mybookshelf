@@ -5,14 +5,13 @@ import "./style.css";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
-function SaveButton(props){
+function SaveButton(...props){
  const [book, setBook] = useState({})
   
  const postToDB = (book) => {
       setBook(props, {
         title: book.title,
         author: book.authors,
-        
       })
 
       console.log(props)
