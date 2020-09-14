@@ -5,7 +5,7 @@ function Button({ type = "default", className, children, onClick }) {
   return (
     <button onClick={onClick} 
     className={["btn btn-lg", `btn-${type}`, className].join(" ")}
-    style={{ marginBottom: 10}}
+    style={{float:"right", marginBottom: 10}}
     >
       {children}
     </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios"
-import Button from "./Button";
+import Button from "../Button";
 import "./style.css";
 
 // This button takes the props from the button and stores it in the object we call "book"
