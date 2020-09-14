@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Books from "./pages/Books";
 import Shelf from "./pages/Shelf"
 import NoMatch from "./pages/NoMatch";
+import Detail from "./pages/Detail";
 import Nav from "./components/Nav";
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path={["/shelf", "/books"]}>
             <Shelf />
+          </Route>
+          <Route exact path="/books/:id">
+            <Detail />
           </Route>
           <Route>
             <NoMatch />

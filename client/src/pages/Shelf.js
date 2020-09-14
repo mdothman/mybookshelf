@@ -43,11 +43,11 @@ return (
               <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-
+                     <Link to={"/books/" + book._id}>
                       <strong>
-                          {book.title} by {book.authors}
+                        {book.title} by {book.authors}
                       </strong>
-                       <p>{book.synopsis}</p>
+                    </Link>
                     <DeleteBtn onClick={() => deleteBook(book._id)} />
                   </ListItem>
                 ))}
