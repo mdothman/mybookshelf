@@ -20,8 +20,7 @@ function Shelf() {
   function loadBooks() {
     API.getBooks()
       .then(res => 
-        {console.log(res.data)
-        setBooks(res.data)}
+        setBooks(res.data)
       )
       .catch(err => console.log(err));
   };
@@ -44,11 +43,11 @@ return (
               <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+
                       <strong>
-                        {book.title} by {book.authors}
+                          {book.title} by {book.authors}
                       </strong>
-                    </Link>
+                       <p>{book.synopsis}</p>
                     <DeleteBtn onClick={() => deleteBook(book._id)} />
                   </ListItem>
                 ))}

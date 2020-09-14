@@ -114,6 +114,9 @@ function handleEnterKey(event){
               authors={book.volumeInfo.authors ? 
                       book.volumeInfo.authors.join(",") : 
                       ["No known Authors"]}
+              synopsis={book.volumeInfo.description ? 
+                book.volumeInfo.description : 
+                ["No description available"] }        
               />
             </Col>
          </Row>
