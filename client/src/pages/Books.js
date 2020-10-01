@@ -1,9 +1,9 @@
 import React, { useState, Fragment } from "react";
-import axios from 'axios';
 import Jumbotron from "../components/Jumbotron";
 import SaveButton from "../components/SaveButton"
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
+import API from "../utils/API";
 
 
 function Books() {
@@ -23,12 +23,9 @@ function Books() {
   function handleSubmit(event){
     event.preventDefault()
     if(query){
-      let url = `https://www.googleapis.com/books/v1/volumes?q=${query}`
-      axios.get(url)
-   .then(res => {
-     
+      API.googleBook(query)
+      .then(res => {
       setBooks(res.data.items)
-      
     })
     .catch(err=>{console.log(err)})
     }  

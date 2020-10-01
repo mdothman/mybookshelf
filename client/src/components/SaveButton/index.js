@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios"
+import API from "../../utils/API"
 import Button from "../Button";
 import "./style.css";
 
@@ -8,7 +8,7 @@ function SaveButton(props){
   
  const postToDB = (book) => {
 
-      axios.post("api/books",book)
+  API.saveBook(book)
       .then( () => console.log(`You added ${book.title} to your bookshelf`))
       .catch(err => console.log(err))
           }
